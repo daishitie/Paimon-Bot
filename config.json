@@ -1,0 +1,25 @@
+{
+    "prefix": ";",
+    "time": {
+        "zone": "ASIA/MANILA",
+        "format": "MMM DD, YYYY hh:mmA"
+    },
+    "developer": {
+        "id": "742419682489008188",
+        "username": "daishitie#4585"
+    },
+    "color": {
+        "info": "5bc0de",
+        "success": "22bb33",
+        "danger": "bb2124",
+        "warning": "f0ad4e"
+    },
+    "channelId": {
+        "roleAssign": {
+            "verify": "807515039753437184"
+        }
+    },
+    "roleId": {
+        "verify": "807486597922291765"
+    }
+}

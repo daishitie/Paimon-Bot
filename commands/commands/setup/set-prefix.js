@@ -1,0 +1,34 @@
+const mongo = require('@root/mongo')
+const prefixSchema = require('@schemas/prefix-schema')
+
+module.exports = {
+    commands: ['setprefix', 'sp'],
+    description: `Set server's default prefix.`,
+    expectedArgs: `<arg1>`,
+    minArgs: 1,
+    maxArgs: 1,
+    callback: async (message, arguments, text, client, embed, cache) => {
+        await mongo().then(async (mongoose) => {
+            try {
+                const { guild } = message
+
+                cache[`prefix-${guild.id}`] = [text]
+
+                await prefixSchema.findOneAndUpdate({
+                    _id: guild.id
+                }, {
+                    _id: guild.id,
+                    prefix: text
+                }, {
+                    upsert: true,
+                    useFindAndModify: false
+                })
+
+                await message.reply(`New prefix for this server set to: \`${text}\``)
+            } finally {
+                mongoose.connection.close()
+            }
+        })
+    },
+    permissions: ['ADMINISTRATOR']
+}

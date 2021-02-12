@@ -1,0 +1,26 @@
+{
+  "name": "paimon-impact",
+  "version": "1.0.0",
+  "description": "Paimon Impact by Daishitie",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "daishitie",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.19.0",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.11.15"
+  },
+  "_moduleAliases": {
+    "@root": ".",
+    "@util": "./util",
+    "@features": "./features/features",
+    "@commands": "./commands/commands",
+    "@schemas": "./schemas"
+  }
+}
