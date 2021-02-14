@@ -22,7 +22,7 @@ client.on('ready', async () => {
             console.log(`Successfully connected to database!\n`)
             console.log(`Paimon is ready!`)
 
-            client.user.setActivity(`Genshin Impact`, { type: `WATCHING` })
+            client.user.setActivity(`${developer.username}`, { type: `WATCHING` })
                 .then(presence => console.log(`Activity set to ${presence.activities[0].name}\n`))
                 .catch(console.error)
         } finally {
