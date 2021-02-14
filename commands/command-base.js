@@ -54,6 +54,7 @@ module.exports = (client, embed, options, cache) => {
         minArgs = 0,
         maxArgs = null,
         permissions = [],
+        roles = [],
         servers = [],
         channels = [],
         callback
@@ -71,6 +72,12 @@ module.exports = (client, embed, options, cache) => {
         }
 
         validatePermissions(permissions)
+    }
+
+    if (roles.length) {
+        if (typeof roles === `string`) {
+            roles = [roles]
+        }
     }
 
     if (servers.length) {
@@ -93,12 +100,40 @@ module.exports = (client, embed, options, cache) => {
 
         for (const alias of commands) {
             if (content.toLowerCase().startsWith(`${prefix}${alias.toLowerCase()}`)) {
-                // Permissions
+
+                // Permissions and Roles
                 
-                for (const permission of permissions) {
-                    if (!member.hasPermission(permission)) {
-                        message.reply(permissionError)
-                        return
+                console.log(roles.length)
+
+                if (!roles.length) {
+                    for (const permission of permissions) {
+                        if (!member.hasPermission(permission)) {
+                            message.reply(permissionError)
+                            return
+                        }
+                    }
+                } else {
+                    for (const role of roles) {
+                        const r = guild.roles.cache.find(r => r.name === role)
+                        
+                        if (!r) {
+                            message.reply(`Somethine went wrong please contact daishtie#4585.`)
+                            return
+                        }
+
+                        if (permissions.length) {
+                            for (const permission of permissions) {
+                                if (!member.hasPermission(permission) && !member.roles.cache.has(r.id) ) {
+                                    message.reply(`You must have the "${role}" role to use this command.`)
+                                    return
+                                }
+                            }
+                        } else {
+                            if (!member.roles.cache.has(r.id) ) {
+                                message.reply(`You must have the "${role}" role to use this command.`)
+                                return
+                            }
+                        }
                     }
                 }
 
