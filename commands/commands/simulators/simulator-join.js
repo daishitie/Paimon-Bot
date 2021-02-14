@@ -4,7 +4,7 @@ const welcomeSchema = require('@schemas/welcome-schema')
 module.exports = {
     commands: ['simulatorjoin', 'simjoin', 'sj'],
     description: `Simulate join message.`,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         const { member, guild } = message
         let data = cache[`welcome-${guild.id}`]
 

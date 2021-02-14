@@ -1,7 +1,7 @@
 const mongo = require('@root/mongo')
 const welcomeSchema = require('@schemas/welcome-schema')
 
-module.exports = (client, embed, cache) => {
+module.exports = (client, cache) => {
     client.on('guildMemberAdd', async (member) => {
         const { guild } = member
         let data = cache[`welcome-${guild.id}`]

@@ -1,4 +1,7 @@
-module.exports = async (client, embed, cache) => {
+const { MessageEmbed } = require('discord.js')
+const embed = new MessageEmbed()
+
+module.exports = async (client, cache) => {
     const isInvite = async (guild, code) => {
         return await new Promise((resolve) => {
             guild.fetchInvites().then((invites) => {

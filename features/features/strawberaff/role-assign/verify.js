@@ -1,7 +1,10 @@
+const { MessageEmbed } = require('discord.js')
+const embed = new MessageEmbed()
+
 const { channelId, color } = require('@root/config-strawberaff.json')
 const firstMessage = require('@util/first-message')
 
-module.exports = async (client, embed, cache) => {
+module.exports = async (client, cache) => {
     let assignedChannel = channelId.roleAssign.verify
 
     embed

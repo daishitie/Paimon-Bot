@@ -6,7 +6,7 @@ module.exports = {
     description: `Set server's welcome message.`,
     expectedArgs: `<arg1>`,
     minArgs: 1,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         await mongo().then(async (mongoose) => {
             try {
                 const { channel, guild } = message

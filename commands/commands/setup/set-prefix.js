@@ -7,7 +7,7 @@ module.exports = {
     expectedArgs: `<arg1>`,
     minArgs: 1,
     maxArgs: 1,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         await mongo().then(async (mongoose) => {
             try {
                 const { guild } = message

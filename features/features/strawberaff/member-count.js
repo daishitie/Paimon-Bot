@@ -1,6 +1,6 @@
 const { guildId, channelId } = require('@root/config-strawberaff.json')
 
-module.exports = async (client, embed, cache) => {
+module.exports = async (client, cache) => {
     const updateMembers = async (guild) => {
         const channel = await guild.channels.cache.get(channelId.members)
         if (channel) {

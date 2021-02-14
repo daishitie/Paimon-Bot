@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-module.exports = (client, embed, cache) => {
+module.exports = (client, cache) => {
     const baseFile = `command-base.js`
     const commandBase = require(`./${baseFile}`)
     const commands = []
@@ -19,7 +19,7 @@ module.exports = (client, embed, cache) => {
                 commands.push(options)
 
                 if (client) {
-                    commandBase(client, embed, options, cache)
+                    commandBase(client, options, cache)
                 }
             }
         }

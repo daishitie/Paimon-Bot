@@ -4,7 +4,7 @@ module.exports = {
     expectedArgs: `<stream link> [optional description]`,
     minArgs: 1,
     maxArgs: null,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         let format = `Hey @everyone, **StrawbeRaff** is now live! Go Drop a Like, Comment, and Share the stream!\n`
             format += `${arguments[0]}`
 

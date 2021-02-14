@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('fs')
 
-module.exports = (client, embed, cache) => {
+module.exports = (client, cache) => {
     const readFeatures = dir => {
         const files = fs.readdirSync(path.join(__dirname, dir))
         
@@ -14,7 +14,7 @@ module.exports = (client, embed, cache) => {
                 const feature = require(path.join(__dirname, dir, file))
                 
                 // console.log(`Enabling feature "${file}"`)
-                feature(client, embed, cache)
+                feature(client, cache)
             }
         }
     }

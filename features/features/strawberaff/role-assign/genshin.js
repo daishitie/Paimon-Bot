@@ -1,7 +1,10 @@
+const { MessageEmbed } = require('discord.js')
+const embed = new MessageEmbed()
+
 const firstMessage = require('@util/first-message')
 const { botId, channelId, color } = require('@root/config-strawberaff.json')
 
-module.exports = (client, embed) => {
+module.exports = (client, cache) => {
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
     let assignedChannel = channelId.roleAssign.genshin
 

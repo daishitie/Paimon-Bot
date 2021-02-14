@@ -45,7 +45,7 @@ const validatePermissions = (permissions) => {
 
 let cacheRunCmd = []
 
-module.exports = (client, embed, options, cache) => {
+module.exports = (client, options, cache) => {
     let {
         commands,
         expectedArgs,
@@ -205,7 +205,7 @@ module.exports = (client, embed, options, cache) => {
                     }, 1000 * cooldown)
                 }
 
-                callback(message, arguments, arguments.join(' '), client, embed, cache)
+                callback(message, arguments, arguments.join(' '), client, cache)
                 return
             }
         }

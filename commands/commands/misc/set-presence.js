@@ -3,7 +3,7 @@ module.exports = {
     description: `Set custom bot activity.`,
     expectedArgs: `<activity>`,
     minArgs: 1,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         client.user.setPresence({
             activity: {
                 name: text,

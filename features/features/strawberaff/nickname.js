@@ -1,6 +1,6 @@
 const { channelId } = require('@root/config-strawberaff.json')
 
-module.exports = async (client, embed, cache) => {
+module.exports = async (client, cache) => {
     client.on('message', async (message) => {
         if (message.author.bot || !message.guild) return
 

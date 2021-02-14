@@ -1,7 +1,7 @@
 module.exports = {
     commands: ['server'],
     description: `Simulate join message.`,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         const { guild } = message
 
         client.guilds.cache.forEach(g => {

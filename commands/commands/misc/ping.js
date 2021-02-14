@@ -2,7 +2,7 @@ module.exports = {
     commands: 'ping',
     description: `Check Paimon's latency.`,
     cooldown: 15,
-    callback: (message, arguments, text, client, embed) => {
+    callback: (message, arguments, text, client, cache) => {
         message.reply('Calculating ping...')
             .then((resultMessage) => {
                 const ping = resultMessage.createdTimestamp - message.createdTimestamp

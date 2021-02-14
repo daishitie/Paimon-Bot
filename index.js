@@ -1,10 +1,9 @@
 require('module-alias/register')
 require('dotenv').config()
 
-const { Client, MessageEmbed } = require('discord.js')
+const { Client } = require('discord.js')
 
 const client = new Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
-const embed = new MessageEmbed()
 
 const { developer } = require('@root/config.json')
 const mongo = require('@root/mongo')
@@ -32,8 +31,8 @@ client.on('ready', async () => {
     })
 
     await commandBase.loadPrefixes(client, cache)
-    await loadCommands(client, embed, cache)
-    await loadFeatures(client, embed, cache)
+    await loadCommands(client, cache)
+    await loadFeatures(client, cache)
 })
 
 client.setMaxListeners(11)

@@ -9,7 +9,7 @@ module.exports = {
     cooldown: -1,
     minArgs: 0,
     maxArgs: null,
-    callback: async (message, arguments, text, client, embed, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         await mongo().then(async (mongoose) => {
             try {
                 // Save/Update/Read
