@@ -26,5 +26,5 @@ module.exports = {
             .send(data[1].replace(/<@>/g, `<@${member.id}>`))
             .catch(console.error)
     },
-    permission: ['ADMINISTRATOR']
+    permissions: ['ADMINISTRATOR']
 }
