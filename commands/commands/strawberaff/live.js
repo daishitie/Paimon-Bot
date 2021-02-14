@@ -5,7 +5,7 @@ module.exports = {
     minArgs: 1,
     maxArgs: null,
     callback: async (message, arguments, text, client, cache) => {
-        let format = `Hey @Strawbaby, **StrawbeRaff** is now live! Go Drop a Like, Comment, and Share the stream!\n`
+        let format = `Hey <@800764295554007051>, **StrawbeRaff** is now live! Go Drop a Like, Comment, and Share the stream!\n`
             format += `${arguments[0]}`
 
         if (arguments.length > 1) {
