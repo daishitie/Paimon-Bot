@@ -149,7 +149,7 @@ module.exports = (client, options, cache) => {
                     }
 
                     if (!serverOnly) {
-                        message.reply(`This command is not allowed in this server!`)
+                        // message.reply(`This command is not allowed in this server!`)
                         return
                     }
                 }
