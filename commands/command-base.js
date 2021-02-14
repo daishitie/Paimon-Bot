@@ -183,8 +183,11 @@ module.exports.loadPrefixes = async (client, cache) => {
             console.log(`Loaded Prefixes:`)
             for (const guild of client.guilds.cache) {
                 const result = await prefixSchema.findOne({ _id: guild[1].id })
-                cache[`prefix-${guild[1].id}`] = result.prefix
-                console.log(`\t${guild[1].name} (${guild[1].id}): ${result.prefix}\n`)
+
+                if (result) {
+                    cache[`prefix-${guild[1].id}`] = result.prefix
+                    console.log(`\t${guild[1].name} (${guild[1].id}): ${result.prefix}\n`)
+                }
             }
         } finally {
             mongoose.connection.close()
