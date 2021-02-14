@@ -11,7 +11,7 @@ module.exports = async (client, embed, cache) => {
     firstMessage(client, assignedChannel, { content: `@everyone`, embed: embed } , ['🍓'])
 
     const handleReaction = (reaction, user, add) => {
-        if (user.id === botId) return
+        if (user.bot) return
 
         const verify = reaction._emoji.name
         const { guild } = reaction.message
