@@ -6,7 +6,7 @@ module.exports = {
     maxArgs: null,
     callback: async (message, arguments, text, client, embed, cache) => {
         let format = `Hey @here, **${arguments[0]}** is now live! Go Drop a Like, Comment, and Share the stream!\n`
-            format += `${arguments[0]}`
+            format += `${arguments[1]}`
 
         if (arguments.length > 2) {
             arguments.shift()
