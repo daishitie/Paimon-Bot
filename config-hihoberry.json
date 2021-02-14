@@ -1,0 +1,15 @@
+{
+    "guildId": "795185386530799657",
+    "channelId": {
+        "members": "801046992515498005",
+        "roleAssign": {
+            "genshin": "800715176822833192"
+        }
+    },
+    "color": {
+        "info": "fc5a8d",
+        "success": "22bb33",
+        "danger": "bb2124",
+        "warning": "f0ad4e"
+    }
+}
