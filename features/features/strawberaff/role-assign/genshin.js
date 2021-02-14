@@ -39,7 +39,7 @@ module.exports = (client, cache) => {
         content += `${region} : \`${role}\`\n\n`
     }
 
-    content += `\n\n**Select your world level.**\n`
+    content += `\n**Select your world level.**\n`
     content += `React to the number based on your world level.\n\n`
 
     for (const key in worldLevels) {

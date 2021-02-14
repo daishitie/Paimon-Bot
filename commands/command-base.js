@@ -102,8 +102,6 @@ module.exports = (client, options, cache) => {
             if (content.toLowerCase().startsWith(`${prefix}${alias.toLowerCase()}`)) {
 
                 // Permissions and Roles
-                
-                console.log(roles.length)
 
                 if (!roles.length) {
                     for (const permission of permissions) {

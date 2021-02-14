@@ -19,6 +19,7 @@ module.exports = {
         })
     },
     permissions: [],
+    roles: [],
     servers: [],
     channels: []
 }
