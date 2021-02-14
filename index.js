@@ -21,7 +21,7 @@ client.on('ready', async () => {
     await mongo().then(mongoose => {
         try {
             console.log(`Successfully connected to database!\n`)
-            console.log(`Paimon Impact is ready!`)
+            console.log(`Paimon is ready!`)
 
             client.user.setActivity(`${developer.username}`, { type: `WATCHING` })
                 .then(presence => console.log(`Activity set to ${presence.activities[0].name}\n`))

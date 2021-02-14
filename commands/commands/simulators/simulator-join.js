@@ -21,9 +21,8 @@ module.exports = {
                 }
             })
         }
-        
-        client.channels.cache
-            .get(data[0])
+    
+        client.channels.cache.get(data[0])
             .send(data[1].replace(/<@>/g, `<@${member.id}>`))
             .catch(console.error)
     },

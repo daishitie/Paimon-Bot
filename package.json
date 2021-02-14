@@ -1,7 +1,7 @@
 {
   "name": "paimon-impact",
   "version": "1.0.0",
-  "description": "Paimon Impact by Daishitie",
+  "description": "Paimon by Daishitie",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
