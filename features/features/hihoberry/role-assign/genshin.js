@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 const embed = new MessageEmbed()
 
 const firstMessage = require('@util/first-message')
-const { botId, channelId, color } = require('@root/config-hihoberry.json')
+const { channelId, color } = require('@root/config-hihoberry.json')
 
 module.exports = (client, cache) => {
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)
@@ -57,7 +57,7 @@ module.exports = (client, cache) => {
     firstMessage(client, assignedChannel, embed, reactions)
 
     const handleReaction = (reaction, user, add) => {
-        if (user.id === botId) return
+        if (user.bot) return
 
         const emoji = reaction._emoji.name
         const { guild } = reaction.message
