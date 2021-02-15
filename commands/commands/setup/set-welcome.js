@@ -2,7 +2,7 @@ const mongo = require('@root/mongo')
 const welcomeSchema = require('@schemas/welcome-schema')
 
 module.exports = {
-    commands: ['setwelcome', 'sw'],
+    commands: ['setwelcome'],
     description: `Set server's welcome message.`,
     expectedArgs: `<arg1>`,
     minArgs: 1,

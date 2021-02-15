@@ -2,7 +2,7 @@ const mongo = require('@root/mongo')
 const prefixSchema = require('@schemas/prefix-schema')
 
 module.exports = {
-    commands: ['setprefix', 'sp'],
+    commands: ['setprefix'],
     description: `Set server's default prefix.`,
     expectedArgs: `<arg1>`,
     minArgs: 1,

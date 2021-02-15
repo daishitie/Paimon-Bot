@@ -9,22 +9,26 @@ module.exports = {
         let data = cache[`welcome-${guild.id}`]
 
         if (!data) {
-            console.log(`[Welcome]: Fetching from database.`)
-
             await mongo().then(async (mongoose) => {
                 try {
                     const result = await welcomeSchema.findOne({ _id: guild.id })
     
-                    cache[`welcome-${guild.id}`] = data = [result.channelId, result.text]
+                    if (result) {
+                        cache[`welcome-${guild.id}`] = data = [result.channelId, result.text]
+                    } else {
+                        cache[`welcome-${guild.id}`] = data = 1
+                    }
                 } finally {
                     mongoose.connection.close()
                 }
             })
         }
-    
-        client.channels.cache.get(data[0])
-            .send(data[1].replace(/<@>/g, `<@${member.id}>`))
-            .catch(console.error)
+
+        if (data != 1) {
+            client.channels.cache.get(data[0])
+                .send(data[1].replace(/<@>/g, `<@${member.id}>`))
+                .catch(console.error)
+        }
     },
     permissions: ['ADMINISTRATOR']
 }

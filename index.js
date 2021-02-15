@@ -35,6 +35,6 @@ client.on('ready', async () => {
     await loadFeatures(client, cache)
 })
 
-client.setMaxListeners(11)
+client.setMaxListeners(69)
 
 client.login(process.env.PAIMON_TOKEN)
