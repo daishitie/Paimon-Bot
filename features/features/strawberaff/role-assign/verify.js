@@ -9,9 +9,9 @@ module.exports = async (client, cache) => {
 
     embed
         .setColor(color.info)
-        .setDescription(`Click on the " 🍓 " icon to verify.`)
+        .setDescription(`**Click on the " 🍓 " emoji to get verified**`)
 
-    firstMessage(client, assignedChannel, { content: `> **@everyone Get verified to access our channels**`, embed: embed }, ['🍓'])
+    firstMessage(client, assignedChannel, { embed: embed }, ['🍓'])
 
     const handleReaction = (reaction, user, add) => {
         if (user.bot) return
