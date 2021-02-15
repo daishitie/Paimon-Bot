@@ -14,7 +14,7 @@ module.exports = (client, cache) => {
                     if (result) {
                         cache[`welcome-${guild.id}`] = data = [result.channelId, result.text]
                     } else {
-                        cache[`welcome-${guild.id}`] = data = 1
+                        cache[`welcome-${guild.id}`] = data = [``, ``]
                     }
                 } finally {
                     mongoose.connection.close()
@@ -22,7 +22,7 @@ module.exports = (client, cache) => {
             })
         }
 
-        if (data !== 1) {
+        if (data[0] !== `` && data[1] !== ``) {
             client.channels.cache.get(data[0])
                 .send(data[1].replace(/<@>/g, `<@${member.id}>`))
                 .catch(console.error)

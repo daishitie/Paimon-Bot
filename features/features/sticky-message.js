@@ -14,12 +14,12 @@ module.exports = async (client, cache) => {
         if (!data) {
             await mongo().then(async (mongoose) => {
                 try {
-                    const result = await stickyMessageSchema.findOne({ _id: guild.id }).catch(uwu => {})
-
+                    const result = await stickyMessageSchema.findOne({ _id: guild.id }).catch(console.error)
+                    
                     if (result) {
                         cache[`sticky-${guild.id}`] = data = [result.isEnable, result.maxCount, 0, ``, result.channelId, result.text]
                     } else {
-                        cache[`sticky-${guild.id}`] = data = 1
+                        cache[`sticky-${guild.id}`] = data = [false, 1, 0, ``, ``, ``]
                     }
                 } finally {
                     mongoose.connection.close()
@@ -27,7 +27,7 @@ module.exports = async (client, cache) => {
             })
         }
 
-        if (data !== 1) {
+        if (data) {
             if (data[0] && data[5] !== ``) {
                 if (channel.id === data[4]) {
                     data[2]++
@@ -39,27 +39,11 @@ module.exports = async (client, cache) => {
                             .setColor(color.info)
                             .setTitle(`📌 Pinned Message`)
                             .setDescription(data[5])
-
+    
                         data[3] = await channel.send({ embed: embed }).catch(uwu => {})
                         data[2] = 0
-
-                        await mongo().then(async (mongoose) => {
-                            try {
-                                cache[`sticky-${guild.id}`] = data = [data[0], data[1], data[2], data[3], data[4], data[5]]
-
-                                await stickyMessageSchema.findOneAndUpdate({
-                                    _id: guild.id
-                                }, {
-                                    _id: guild.id,
-                                    lastSticky: data[3]
-                                }, {
-                                    upsert: true,
-                                    useFindAndModify: false
-                                }).catch(uwu => {})
-                            } finally {
-                                mongoose.connection.close()
-                            }
-                        })
+    
+                        cache[`sticky-${guild.id}`] = data = [data[0], data[1], data[2], data[3], data[4], data[5]]
                     }
     
                     cache[`sticky-${guild.id}`][2] = data[2]
