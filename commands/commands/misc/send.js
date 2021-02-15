@@ -6,7 +6,7 @@ const { color } = require('@root/config.json')
 module.exports = {
     commands: ['sadmin'],
     description: `Send custom embedded message.`,
-    minArgs: 2,
+    minArgs: 1,
     callback: (message, arguments, text, client, cache) => {
         const { channel } = message
 

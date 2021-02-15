@@ -11,7 +11,7 @@ module.exports = async (client, cache) => {
         .setColor(color.info)
         .setDescription(`Click on the " 🍓 " icon to verify.`)
 
-    firstMessage(client, assignedChannel, { content: `@everyone`, embed: embed }, ['🍓'])
+    firstMessage(client, assignedChannel, { content: `> **@everyone Get verified to access our channels**`, embed: embed }, ['🍓'])
 
     const handleReaction = (reaction, user, add) => {
         if (user.bot) return
