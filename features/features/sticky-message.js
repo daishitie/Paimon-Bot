@@ -14,7 +14,7 @@ module.exports = async (client, cache) => {
         if (!data) {
             await mongo().then(async (mongoose) => {
                 try {
-                    const result = await stickyMessageSchema.findOne({ _id: guild.id })
+                    const result = await stickyMessageSchema.findOne({ _id: guild.id }).catch(uwu => {})
 
                     if (result) {
                         cache[`sticky-${guild.id}`] = data = [result.isEnable, result.maxCount, 0, ``, result.channelId, result.text]
@@ -55,7 +55,7 @@ module.exports = async (client, cache) => {
                                 }, {
                                     upsert: true,
                                     useFindAndModify: false
-                                })
+                                }).catch(uwu => {})
                             } finally {
                                 mongoose.connection.close()
                             }
