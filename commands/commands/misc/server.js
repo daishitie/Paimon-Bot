@@ -1,6 +1,6 @@
 module.exports = {
     commands: ['server'],
-    description: `Simulate join message.`,
+    description: `Display server member count.`,
     callback: async (message, arguments, text, client, cache) => {
         const { guild } = message
 
