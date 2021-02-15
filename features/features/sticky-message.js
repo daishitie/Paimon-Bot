@@ -33,14 +33,14 @@ module.exports = async (client, cache) => {
                     data[2]++
     
                     if (data[2] === data[1]) {
-                        if (data[3] && data[3] !== ``) await data[3].delete({ timeout: 750 })
+                        if (data[3] && data[3] !== ``) await data[3].delete({ timeout: 750 }).catch(uwu => {})
     
                         embed
                             .setColor(color.info)
                             .setTitle(`📌 Pinned Message`)
                             .setDescription(data[5])
 
-                        data[3] = await channel.send({ embed: embed })
+                        data[3] = await channel.send({ embed: embed }).catch(uwu => {})
                         data[2] = 0
 
                         await mongo().then(async (mongoose) => {
