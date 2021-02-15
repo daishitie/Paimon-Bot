@@ -4,7 +4,8 @@ module.exports = async (client, cache) => {
     const updateMembers = async (guild) => {
         const channel = await guild.channels.cache.get(channelId.members)
         if (channel) {
-            await channel.setName(`Strawbabies: ${guild.memberCount.toLocaleString()}`)
+            // await channel.setName(`Strawbabies: ${guild.memberCount.toLocaleString()}`)
+            await channel.setName(`Strawbabies: ${guild.members.cache.filter(m => !m.user.bot).size}`)
         }
     }
 
