@@ -1,20 +1,28 @@
 {
-  "name": "paimon-impact",
-  "version": "1.0.0",
-  "description": "Paimon by Daishitie",
+  "name": "paimon-bot",
+  "version": "2.0.0",
+  "description": "A discord bot by daishitie#4585",
+  "repository": "github:daishitie/Paimon-Bot",
+  "bugs": "https://github.com/daishitie/Paimon-Bot/issues",
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "private": true,
   "author": "daishitie",
+  "email": "daishitie@gmail.com",
+  "url": "https://fb.gg/daishitie",
   "license": "ISC",
+  "scripts": {
+    "main": "index.js",
+    "start": "node index.js",
+    "lint": "eslint --ext .js"
+  },
   "dependencies": {
     "discord.js": "^12.5.1",
-    "dotenv": "^8.2.0",
     "eslint": "^7.19.0",
     "module-alias": "^2.2.2",
     "mongoose": "^5.11.15"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
   },
   "_moduleAliases": {
     "@root": ".",
