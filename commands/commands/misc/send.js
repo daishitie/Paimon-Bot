@@ -1,10 +1,10 @@
-const { MessageEmbed } = require('discord.js')
+const { MessageEmbed, MessageAttachment } = require('discord.js')
 const embed = new MessageEmbed()
 
 const { color } = require('@root/config.json')
 
 module.exports = {
-    commands: ['sadmin'],
+    commands: ['sadmin', 'sa'],
     description: `Send custom embedded message.`,
     minArgs: 1,
     callback: (message, arguments, text, client, cache) => {
