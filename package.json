@@ -17,12 +17,10 @@
   },
   "dependencies": {
     "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
     "eslint": "^7.19.0",
     "module-alias": "^2.2.2",
     "mongoose": "^5.11.15"
-  },
-  "devDependencies": {
-    "dotenv": "^8.2.0"
   },
   "_moduleAliases": {
     "@root": ".",
