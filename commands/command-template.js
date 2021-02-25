@@ -3,7 +3,7 @@ const templateSchema = require('@schemas/template-schema')
 
 module.exports = {
     commands: [],
-    description: ``,
+    description: `Default description.`,
     expectedArgs: `<arg1> <arg2>`,
     permissionError: `You need administrator permission to run this command.`,
     cooldown: -1,

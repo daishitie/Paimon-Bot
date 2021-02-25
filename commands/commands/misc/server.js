@@ -1,6 +1,7 @@
 module.exports = {
     commands: ['server'],
     description: `Display server member count.`,
+    cooldown: 3,
     callback: async (message, arguments, text, client, cache) => {
         const { guild } = message
 

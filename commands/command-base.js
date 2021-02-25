@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js')
+const embed = new MessageEmbed()
+
 const mongo = require('@root/mongo')
 const prefixSchema = require('@schemas/prefix-schema')
 const { prefix: defaultPrefix } = require('@root/config.json')
@@ -19,7 +22,7 @@ const validatePermissions = (permissions) => {
         'SEND_TTS_MESSAGES',
         'MANAGE_MESSAGES',
         'EMBED_LINKS',
-        'ATTACK_FILES',
+        'ATTACH_FILES',
         'READ_MESSAGE_HISTORY',
         'MENTION_EVERYONE',
         'USE_EXTERNAL_EMOJIS',
@@ -38,7 +41,7 @@ const validatePermissions = (permissions) => {
 
     for (const permission of permissions) {
         if (!validPermissions.includes(permission)) {
-            throw new Error(`Unknown permission node "${permission}`)
+            throw new Error(`Unknown permission node "${permission}"`)
         }
     }
 }
@@ -94,7 +97,6 @@ module.exports = (client, options, cache) => {
 
     client.on('message', async (message) => {
         if (message.author.bot || !message.guild) return
-
         const { member, content, guild } = message
         let prefix = cache[`prefix-${guild.id}`] || defaultPrefix
 
@@ -175,8 +177,14 @@ module.exports = (client, options, cache) => {
                 // Cooldown
                 // guildid-memberid-command
                 let cooldownId = `${guild.id}-${member.id}-${commands[0]}`
-                if (cooldown > 0 && cacheRunCmd.includes(cooldownId)) {
-                    message.reply(`You cannot use that command so soon, please wait.`)
+                if (cooldown > 0 && typeof cacheRunCmd[cooldownId] !== `undefined`) {
+                    time = new Date().getTime()
+                    let seconds = cooldown - ((time - cacheRunCmd[cooldownId]) / 1000)
+
+                    embed.setColor(`#000000`)
+                        .setDescription(`You're using this command too often! Try again in ${seconds.toFixed(2)} seconds!`)
+
+                    message.reply({ embed })
                     return
                 }
 
@@ -195,9 +203,12 @@ module.exports = (client, options, cache) => {
                 }
 
                 if (cooldown > 0) {
-                    cacheRunCmd.push(cooldownId)
+                    cacheRunCmd[cooldownId] = message.createdTimestamp
                     setTimeout(() => {
+                        cacheRunCmd.splice(cooldownId, 1)
+
                         cacheRunCmd = cacheRunCmd.filter((string) => {
+                            console.log(string)
                             string !== cooldownId
                         })
                     }, 1000 * cooldown)

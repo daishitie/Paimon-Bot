@@ -2,8 +2,9 @@ const mongo = require('@root/mongo')
 const welcomeSchema = require('@schemas/welcome-schema')
 
 module.exports = {
-    commands: ['simulatorjoin', 'simjoin', 'sj'],
+    commands: ['simulatorjoin', 'simjoin'],
     description: `Simulate join message.`,
+    cooldown: 3,
     callback: async (message, arguments, text, client, cache) => {
         const { member, guild } = message
         let data = cache[`welcome-${guild.id}`]

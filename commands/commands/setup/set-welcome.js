@@ -4,7 +4,8 @@ const welcomeSchema = require('@schemas/welcome-schema')
 module.exports = {
     commands: ['setwelcome'],
     description: `Set server's welcome message.`,
-    expectedArgs: `<arg1>`,
+    expectedArgs: `<new welcome message>`,
+    cooldown: 3,
     minArgs: 1,
     callback: async (message, arguments, text, client, cache) => {
         await mongo().then(async (mongoose) => {

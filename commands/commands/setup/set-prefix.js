@@ -4,7 +4,8 @@ const prefixSchema = require('@schemas/prefix-schema')
 module.exports = {
     commands: ['setprefix'],
     description: `Set server's default prefix.`,
-    expectedArgs: `<arg1>`,
+    expectedArgs: `<new server prefix>`,
+    cooldown: 3,
     minArgs: 1,
     maxArgs: 1,
     callback: async (message, arguments, text, client, cache) => {

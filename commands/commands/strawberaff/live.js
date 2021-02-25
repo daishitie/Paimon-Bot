@@ -2,6 +2,7 @@ module.exports = {
     commands: ['live'],
     description: `Announce StrawbeRaff Stream.`,
     expectedArgs: `<stream link> [optional description]`,
+    cooldown: 15,
     minArgs: 1,
     maxArgs: null,
     callback: async (message, arguments, text, client, cache) => {

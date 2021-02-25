@@ -1,9 +1,9 @@
 module.exports = {
     commands: ['stream'],
     description: `Share other streamer's live.`,
-    expectedArgs: `<@streamer> <stream link> [optional description]`,
+    expectedArgs: `<mentioned streamer> <stream link> [optional description]`,
+    cooldown: 3,
     minArgs: 2,
-    maxArgs: null,
     callback: async (message, arguments, text, client, cache) => {
         let format = `Hey @here, **${arguments[0]}** is now live! Go Drop a Like, Comment, and Share the stream!\n`
             format += `${arguments[1]}`

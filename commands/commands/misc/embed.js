@@ -4,8 +4,10 @@ const embed = new MessageEmbed()
 const { color } = require('@root/config.json')
 
 module.exports = {
-    commands: ['sadmin', 'sa'],
+    commands: ['embed'],
     description: `Send custom embedded message.`,
+    expectedArgs: `<message>`,
+    cooldown: 3,
     minArgs: 1,
     callback: (message, arguments, text, client, cache) => {
         const { channel } = message
