@@ -21,7 +21,7 @@ module.exports = async (client, cache) => {
 
         if (verify != '🍓') return
 
-        const role = guild.roles.cache.find(role => role.name === 'SaRaff Squad & Strawbaby')
+        const role = guild.roles.cache.find(role => role.name === 'Verified')
         const member = guild.members.cache.find(member => member.id === user.id)
 
         if (add) {
