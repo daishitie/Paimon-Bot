@@ -36,7 +36,7 @@ module.exports = (client, cache) => {
     firstMessage(client, assignedChannel, embed, reactions)
 
     const handleReaction = (reaction, user, add) => {
-        if (user.id === botId) return
+        if (user.bot) return
 
         const emoji = reaction._emoji.name
         const { guild } = reaction.message
