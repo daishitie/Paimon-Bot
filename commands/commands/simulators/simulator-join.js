@@ -26,9 +26,20 @@ module.exports = {
         }
 
         if (data != 1) {
-            client.channels.cache.get(data[0])
-                .send(data[1].replace(/<@>/g, `<@${member.id}>`))
-                .catch(console.error)
+            let text = data[1].replace(/<@>/g, `<@${member.id}>`)
+
+            if (guild.id === `793876465846059008`) {
+                embed.setColor(`RANDOM`)
+                    .setDescription(text)
+
+                client.channels.cache.get(data[0])
+                    .send({ embed: embed })
+                    .catch(console.error)
+            } else {
+                client.channels.cache.get(data[0])
+                    .send(text)
+                    .catch(console.error)
+            }
         }
     },
     permissions: ['ADMINISTRATOR']
