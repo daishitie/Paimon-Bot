@@ -32,7 +32,7 @@ module.exports = (client, cache) => {
                 embed.setColor(`RANDOM`)
                     .setDescription(text)
 
-                client.channel.cache.get(data[0])
+                client.channels.cache.get(data[0])
                     .send({ embed: embed })
                     .catch(console.error)
             } else {
