@@ -1,3 +1,6 @@
+const { MessageEmbed } = require('discord.js')
+const embed = new MessageEmbed()
+
 const mongo = require('@root/mongo')
 const welcomeSchema = require('@schemas/welcome-schema')
 
