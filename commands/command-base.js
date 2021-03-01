@@ -6,6 +6,8 @@ const prefixSchema = require('@schemas/prefix-schema')
 const { prefix: defaultPrefix } = require('@root/config.json')
 
 const validatePermissions = (permissions) => {
+    // Valid permission
+    // List: https://discord.com/developers/docs/topics/permissions
     const validPermissions = [
         'CREATE_INSTANT_INVITE',
         'KICK_MEMBERS',
@@ -30,6 +32,7 @@ const validatePermissions = (permissions) => {
         'CONNECT',
         'SPEAK',
         'MUTE_MEMBERS',
+        'DEAFEN_MEMBERS',
         'MOVE_MEMBERS',
         'USE_VAD',
         'CHANGE_NICKNAME',
@@ -39,13 +42,15 @@ const validatePermissions = (permissions) => {
         'MANAGE_EMOJIS'
     ]
 
+    // Loop through all permissions
     for (const permission of permissions) {
         if (!validPermissions.includes(permission)) {
-            throw new Error(`Unknown permission node "${permission}"`)
+            return console.error(`Unknown permission node "${permission}"`)
         }
     }
 }
 
+// Local cache for command cooldown
 let cacheRunCmd = []
 
 module.exports = (client, options, cache) => {
@@ -63,37 +68,15 @@ module.exports = (client, options, cache) => {
         callback
     } = options
 
-    if (typeof commands === `string`) {
-        commands = [commands]
-    }
-
-    // console.log(`Registering command "${commands[0]}`)
-
     if (permissions.length) {
-        if (typeof permissions === `string`) {
-            permissions = [permissions]
-        }
-
+        if (typeof permissions === `string`) permissions = [permissions]
         validatePermissions(permissions)
     }
 
-    if (roles.length) {
-        if (typeof roles === `string`) {
-            roles = [roles]
-        }
-    }
-
-    if (servers.length) {
-        if (typeof servers === `string`) {
-            servers = [servers]
-        }
-    }
-
-    if (channels.length) {
-        if (typeof channels === `string`) {
-            channels = [channels]
-        }
-    }
+    if (commands.length && typeof commands === `string`) commands = [commands]
+    if (roles.length && typeof roles === `string`) roles = [roles]
+    if (servers.length && typeof servers === `string`) servers = [servers]
+    if (channels.length && typeof channels === `string`) channels = [channels]
 
     client.on('message', async (message) => {
         if (message.author.bot || !message.guild) return
