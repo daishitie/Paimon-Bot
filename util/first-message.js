@@ -1,6 +1,5 @@
 // Add reactions
 const addReactions = (message, reactions) => {
-    console.log(`Reactions length: ${reactions.length}`)
     if (reactions.length > 0) {
         message.react(reactions[0])
         reactions.shift()
