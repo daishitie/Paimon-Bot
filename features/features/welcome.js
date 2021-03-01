@@ -28,7 +28,10 @@ module.exports = (client, cache) => {
         if (data[0] !== `` && data[1] !== ``) {
             let text = data[1].replace(/<@>/g, `<@${member.id}>`)
 
-            if (guild.id === `793876465846059008` || guild.id === `785156593935056967`) {
+            if (
+                guild.id === `793876465846059008` ||
+                guild.id === `785156593935056967`
+            ) {
                 embed.setColor(`RANDOM`)
                     .setDescription(text)
 

@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 const embed = new MessageEmbed()
 
 const firstMessage = require('@util/first-message')
-const { channelId, color } = require('@root/config-strawberaff.json')
+const { channelId, color } = require('@root/config-paimon-impact.json')
 
 module.exports = (client, cache) => {
     const getEmoji = emojiName => client.emojis.cache.find(emoji => emoji.name === emojiName)

@@ -9,10 +9,10 @@ module.exports = (client, cache) => {
     let assignedChannel = channelId.roleAssign.genshin
 
     const regions = {
-        element_cryo: 'NA',
-        element_anemo: 'EU',
-        element_electro: 'ASIA',
-        element_geo: 'TW/HK'
+        daishitie_element_cryo: 'NA',
+        daishitie_element_anemo: 'EU',
+        daishitie_element_electro: 'ASIA',
+        daishitie_element_geo: 'TW/HK'
     }
 
     const worldLevels = {
