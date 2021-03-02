@@ -68,6 +68,7 @@ module.exports = {
         embed7.setColor(color.info)
             .setTitle(`I disagree with my punishment, how can I appeal?`)
             .setDescription(`If you feel that you were punished erroneously or the decision to punish you was made without proper context, please send a direct message to <@&815560590156103740>. The appeal should contain the following, in as much detail as you find appropriate:
+            
             \`\`\`YAML\n- A description of your actions and whether you believe your ban was justified\n- The thought process behind your actions leading up to your time out\n- Why your time out should be appealed\n- Any additional thoughts on your time out\`\`\`
             Please note that your appeal will not be considered if it lacks detail or isn't taken seriously.
             `)
