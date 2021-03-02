@@ -11,7 +11,7 @@ const webhookMessage = require('@util/webhook-message')
 const { color } = require('@root/config-paimon-impact.json')
 
 module.exports = {
-    commands: ['rules'],
+    commands: ['setrules'],
     description: `Send the set of rules.`,
     cooldown: 3,
     callback: (message, arguments, text, client, cache) => {
