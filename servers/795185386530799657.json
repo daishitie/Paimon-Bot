@@ -1,0 +1,13 @@
+{
+    "guildName": "Hihoberry",
+    "guildId": "795185386530799657",
+    "channelId": {
+        "genshin": "810436906071621685"
+    },
+    "color": {
+        "info": "fc5a8d",
+        "success": "22bb33",
+        "danger": "bb2124",
+        "warning": "f0ad4e"
+    }
+}
