@@ -31,7 +31,8 @@ module.exports = (client, cache) => {
             if (
                 guild.id === `793876465846059008` ||
                 guild.id === `785156593935056967` ||
-                guild.id === `817767586934685696`
+                guild.id === `817767586934685696` ||
+                guild.id === `819508971387224064`
             ) {
                 embed.setColor(`RANDOM`)
                     .setDescription(text)
