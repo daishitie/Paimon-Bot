@@ -1,5 +1,5 @@
 const mongo = require('@root/mongo')
-const welcomeMessage = require('@util/webhook-message')
+const welcomeMessage = require('@util/welcome-message')
 const welcomeSchema = require('@schemas/welcome-schema')
 
 module.exports = {
