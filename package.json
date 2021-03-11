@@ -21,6 +21,8 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.19.0",
     "module-alias": "^2.2.2",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
     "mongoose": "^5.11.15"
   },
   "_moduleAliases": {
