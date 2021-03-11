@@ -20,7 +20,7 @@ module.exports = {
         embed1.setColor(color.info)
             .setTitle(`─ Server Rules`)
             .setDescription(`*Read them carefully and make sure you follow them correctly.*`)
-            .setImage(`https://cdn.discordapp.com/banners/522681957373575168/9af0c1e6c84087ef466803fbabdbcc44.webp?size=2048`)
+            .setImage(`https://cdn.discordapp.com/attachments/817767586934685699/819535477743943720/crop.png`)
 
         embed2.setColor(color.info)
             .setTitle(`Rule #1`)
