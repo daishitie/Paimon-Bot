@@ -1,7 +1,7 @@
-const { MessageEmbed } = require('discord.js')
-const embed = new MessageEmbed()
-
 module.exports = async (client, guild, member, data) => {
+    const { MessageEmbed } = require('discord.js')
+    const embed = new MessageEmbed()
+    
     let text = data[1].replace(/<@>/g, `<@${member.id}>`)
     
     if (
