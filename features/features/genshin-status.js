@@ -23,18 +23,18 @@ module.exports = async (client, cache) => {
             let asia = `\`\`\`glsl\n# ASIA ${moment().tz(`Asia/Manila`).format(`hh:mm A`)}\`\`\``
             let sar = `\`\`\`fix\n# SAR ${moment().tz(`Asia/Taipei`).format(`hh:mm A`)}\`\`\``
 
-            if (moment().tz(`America/New_York`).format(`LLL`) >= moment(`000000`, `hhmmss`).tz(`America/New_York`).format(`LLL`)) {
-                naDailyReset = moment(`000000`, `hhmmss`).tz(`America/New_York`).add(`1`, `days`).fromNow()
+            if (moment().tz(`America/New_York`).format(`LLL`) >= moment(`100000`, `hhmmss`).tz(`America/New_York`).format(`LLL`)) {
+                naDailyReset = moment(`100000`, `hhmmss`).tz(`America/New_York`).add(`1`, `days`).fromNow()
             } else {
-                naDailyReset =  moment(`000000`, `hhmmss`).tz(`America/New_York`).fromNow()
+                naDailyReset =  moment(`100000`, `hhmmss`).tz(`America/New_York`).fromNow()
             }
 
             naWeeklyReset = moment().tz(`America/New_York`).endOf(`week`).add(`1`, `days`).add(`17`, `hours`).add(`1`, `minutes`).fromNow()
 
-            if (moment().tz(`Europe/Paris`).format(`LLL`) >= moment(`000000`, `hhmmss`).tz(`Europe/Paris`).format(`LLL`)) {
-                euDailyReset = moment(`000000`, `hhmmss`).tz(`Europe/Paris`).add(`1`, `days`).fromNow()
+            if (moment().tz(`Europe/Paris`).format(`LLL`) >= moment(`030000`, `hhmmss`).tz(`Europe/Paris`).format(`LLL`)) {
+                euDailyReset = moment(`030000`, `hhmmss`).tz(`Europe/Paris`).add(`1`, `days`).fromNow()
             } else {
-                euDailyReset =  moment(`000000`, `hhmmss`).tz(`Europe/Paris`).fromNow()
+                euDailyReset =  moment(`030000`, `hhmmss`).tz(`Europe/Paris`).fromNow()
             }
 
             euWeeklyReset = moment().tz(`Europe/Paris`).endOf(`week`).add(`1`, `days`).add(`11`, `hours`).add(`1`, `minutes`).fromNow()
@@ -44,6 +44,10 @@ module.exports = async (client, cache) => {
             } else {
                 asiaDailyReset =  moment(`20000`, `hhmmss`).tz(`Asia/Manila`).fromNow()
             }
+
+            console.log(moment(`100000`, `hhmmss`).tz(`America/New_York`).format(`LLL`))
+            console.log(moment(`030000`, `hhmmss`).tz(`Europe/Paris`).format(`LLL`))
+            console.log(moment(`20000`, `hhmmss`).tz(`Asia/Manila`).format(`LLL`))
 
             asiaWeeklyReset = moment().tz(`Asia/Manila`).endOf(`week`).add(`1`, `days`).add(`4`, `hours`).add(`1`, `minutes`).fromNow()
 
