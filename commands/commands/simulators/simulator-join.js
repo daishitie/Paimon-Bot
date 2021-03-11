@@ -40,6 +40,10 @@ module.exports = {
                 embed.setColor(`RANDOM`)
                     .setDescription(text)
 
+                if (guild.id === `819508971387224064`) {
+                    embed.setImage(`https://cdn.discordapp.com/attachments/817767586934685699/819537259765432350/Qg-JQvJqabidVmpcPAPLUwUrxuBpN1VHtl-hUmMdUNg.png`)
+                }
+
                 client.channels.cache.get(data[0])
                     .send({ embed: embed })
                     .catch(console.error)
