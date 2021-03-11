@@ -39,10 +39,10 @@ module.exports = async (client, cache) => {
 
             euWeeklyReset = moment().tz(`Europe/Paris`).endOf(`week`).add(`1`, `days`).add(`11`, `hours`).add(`1`, `minutes`).fromNow()
 
-            if (moment().tz(`Asia/Manila`).format(`LLL`) >= moment(`000000`, `hhmmss`).tz(`Asia/Manila`).format(`LLL`)) {
-                asiaDailyReset = moment(`000000`, `hhmmss`).tz(`Asia/Manila`).add(`1`, `days`).fromNow()
+            if (moment().tz(`Asia/Manila`).format(`LLL`) >= moment(`20000`, `hhmmss`).tz(`Asia/Manila`).format(`LLL`)) {
+                asiaDailyReset = moment(`20000`, `hhmmss`).tz(`Asia/Manila`).add(`1`, `days`).fromNow()
             } else {
-                asiaDailyReset =  moment(`000000`, `hhmmss`).tz(`Asia/Manila`).fromNow()
+                asiaDailyReset =  moment(`20000`, `hhmmss`).tz(`Asia/Manila`).fromNow()
             }
 
             asiaWeeklyReset = moment().tz(`Asia/Manila`).endOf(`week`).add(`1`, `days`).add(`4`, `hours`).add(`1`, `minutes`).fromNow()
