@@ -14,7 +14,7 @@ module.exports = async (client, cache) => {
         .setImage(`https://img-os-static.mihoyo.com/upload/2021/03/01/1bf8aad92d66f4663c653057cd9fe167.png`)
 
     moment.relativeTimeThreshold('m', 60);
-    moment.relativeTimeThreshold('h', 24);
+    moment.relativeTimeThreshold('h', 24*2);
 
     async function status() {
         if (new Date() - time >= 1000 * 45) {
