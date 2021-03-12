@@ -47,7 +47,7 @@ module.exports = async (client, cache) => {
 
             asiaWeeklyReset = moment().tz(`Asia/Manila`).endOf(`week`).add(`1`, `days`).add(`20`, `hours`).add(`1`, `minutes`).fromNow()
 
-            console.log(asiaDailyReset =  moment(`20000`, `hhmmss`).tz(`Asia/Manila`).format(`LLL`))
+            console.log(moment(`20000`, `hhmmss`).tz(`Asia/Manila`).format(`LLL`))
             console.log(moment().tz(`Asia/Manila`).endOf(`week`).add(`1`, `days`).add(`4`, `hours`).add(`1`, `minutes`).format(`LLL`))
 
             let naReset = `• Daily reset ${naDailyReset}\n• Weekly reset ${naWeeklyReset}`
