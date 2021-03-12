@@ -57,6 +57,7 @@ module.exports = async (client, cache) => {
             await firstMessage(client, `819631361232076820`, embed, [])
             await firstMessage(client, `819667528728051743`, embed, [])
             await firstMessage(client, `819672367134670849`, embed, [])
+            await firstMessage(client, `819816569638748179`, embed, [])
 
             time = new Date()
             setTimeout(status, 1000 * 15)
