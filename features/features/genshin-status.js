@@ -11,7 +11,7 @@ module.exports = async (client, cache) => {
     moment.relativeTimeThreshold('h', 24*2);
 
     async function status() {
-        if (new Date() - time >= 1000 * 10) {
+        if (new Date() - time >= 1000 * 45) {
             await resetStatus(client, 
                 [
                     // `819826603752292362` underground
@@ -28,11 +28,11 @@ module.exports = async (client, cache) => {
             )
 
             time = new Date()
-            setTimeout(status, 1000 * 1)
+            setTimeout(status, 1000 * 15)
         } else {
-            setTimeout(status, 1000 * 1)
+            setTimeout(status, 1000 * 15)
         }
     }
 
-    setTimeout(status, 1000 * 1)
+    setTimeout(status, 1000 * 15)
 }
