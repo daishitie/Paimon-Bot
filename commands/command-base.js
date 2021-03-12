@@ -213,7 +213,7 @@ module.exports.loadPrefixes = async (client, cache) => {
 
                 if (result) {
                     cache[`prefix-${guild[1].id}`] = result.prefix
-                    console.log(`\t${guild[1].name} (${guild[1].id}): ${result.prefix}\n`)
+                    console.log(`\t${guild[1].name} (${guild[1].id}): ${result.prefix}`)
                 }
             }
         } finally {
