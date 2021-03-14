@@ -14,15 +14,16 @@ embed.setColor(`#2f3136`)
 module.exports = async (client, channels) => {
     if (typeof channels === `string`) channels = [channels]
 
-    let currentTime,
-        reset, 
-        dailyReset, 
-        weeklyReset = undefined
+    let reset = undefined
 
     moment.relativeTimeThreshold('m', 60)
     moment.relativeTimeThreshold('h', 24*2)
 
     timezone.forEach(async (timezone) => {
+        let currentTime,
+            dailyReset, 
+            weeklyReset = ``
+
         switch (timezone) {
             case `NA`:
                 currentTime = `\`\`\`md\n# ${timezone} `
@@ -53,17 +54,99 @@ module.exports = async (client, channels) => {
         currentTime += `${moment().tz(timezone).format(`hh:mm A`)}\`\`\``
 
         if (moment().tz(timezone) >= moment(time, `hhmmss`).tz(timezone)) {
-            dailyReset = moment(time, `hhmmss`).tz(timezone).add(`1`, `days`).fromNow()
+            timeDiff = moment.duration(
+                moment(time, `hhmmss`).tz(timezone)
+                    .add(1, `days`)
+                    .diff(moment().tz(timezone))
+            )
+            
+            diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
+            if (diffHours >= 1) dailyReset = `${diffHours} hours and `
+
+            timeDiff = moment.duration(
+                moment(time, `hhmmss`).tz(timezone)
+                    .add(1, `days`)
+                    .subtract(diffHours, `hours`)
+                    .diff(moment().tz(timezone))
+            )
+
+            diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
+
+            if (diffHours >= 1 || diffMinutes >= 1) {
+                dailyReset = `${dailyReset}${diffMinutes} minutes`
+            } else {
+                if (diffHours <= 0 && diffMinutes <= 0) dailyReset = `a few seconds`
+            }
         } else {
-            dailyReset = moment(time, `hhmmss`).tz(timezone).fromNow()
+            timeDiff = moment.duration(moment(time, `hhmmss`).tz(timezone).diff(moment().tz(timezone)))
+            diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
+            if (diffHours >= 1) dailyReset = `${diffHours} hours and `
+
+            timeDiff = moment.duration(
+                moment(time, `hhmmss`).tz(timezone)
+                    .subtract(diffHours, `hours`)
+                    .diff(moment().tz(timezone))
+            )
+
+            diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
+
+            if (diffHours >= 1 || diffMinutes >= 1) {
+                dailyReset = `${dailyReset}${diffMinutes} minutes`
+            } else {
+                if (diffHours <= 0 && diffMinutes <= 0) dailyReset = `a few seconds`
+            }
         }
-    
-        weeklyReset = moment().tz(timezone).startOf(`isoweek`).add(`7`, `days`).add(`4`, `hours`).fromNow()
-    
-        if (reset === undefined) {
-            reset = `${currentTime}• Daily reset ${dailyReset}\n• Weekly reset ${weeklyReset}`
+
+        timeDiff = moment.duration(
+            moment().tz(timezone)
+                .startOf(`isoweek`)
+                .add(7, `days`)
+                .add(4, `hours`)
+                .diff(moment().tz(timezone))
+        )
+
+        diffDays = parseInt(`` + (timeDiff.asDays()) * 1) / 1
+        if (diffDays >= 1) weeklyReset = `${diffDays} days, `
+        
+        timeDiff = moment.duration(
+            moment().tz(timezone)
+                .startOf(`isoweek`)
+                .add(7, `days`)
+                .add(4, `hours`)
+                .subtract(diffDays, `days`)
+                .diff(moment().tz(timezone))
+        )
+
+        diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
+
+        if (diffDays >= 1 || diffHours >= 1) weeklyReset = `${weeklyReset}${diffHours} hours and `
+
+        timeDiff = moment.duration(
+            moment().tz(timezone)
+                .startOf(`isoweek`)
+                .add(7, `days`)
+                .add(4, `hours`)
+                .subtract(diffDays, `days`)
+                .subtract(diffHours, `hours`)
+                .diff(moment().tz(timezone))
+        )
+
+        diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
+
+        if (diffDays >= 1 || diffHours >= 1 || diffMinutes >= 1) {
+            weeklyReset = `${weeklyReset}${diffMinutes} minutes`
         } else {
-            reset += `${currentTime}• Daily reset ${dailyReset}\n• Weekly reset ${weeklyReset}`
+            if (
+                diffDays <= 0 && 
+                diffHours <= 0 &&
+                diffMinutes <= 0
+            ) weeklyReset = `a few seconds`
+        }
+
+        if (reset === undefined) {
+            reset = `${currentTime}• Daily reset in ${dailyReset}\n• Weekly reset in ${weeklyReset}`
+        } else {
+            reset += `${currentTime}• Daily reset in ${dailyReset}\n• Weekly reset in ${weeklyReset}`
         }
     });
 

@@ -1,14 +1,8 @@
 const { MessageEmbed } = require('discord.js')
-const moment = require('moment-timezone')
-const embed = new MessageEmbed()
-
 const resetStatus = require('@util/reset-status')
 
 module.exports = async (client, cache) => {
     let time = new Date()
-
-    moment.relativeTimeThreshold('m', 60);
-    moment.relativeTimeThreshold('h', 24*2);
 
     async function status() {
         if (new Date() - time >= 1000 * 45) {
