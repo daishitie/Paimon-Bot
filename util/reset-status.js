@@ -97,50 +97,70 @@ module.exports = async (client, channels) => {
             }
         }
 
-        timeDiff = moment.duration(
-            moment().tz(timezone)
-                .startOf(`isoweek`)
-                .add(7, `days`)
-                .add(4, `hours`)
-                .diff(moment().tz(timezone))
-        )
-
-        diffDays = parseInt(`` + (timeDiff.asDays()) * 1) / 1
-        if (diffDays >= 1) weeklyReset = `${diffDays} days, `
-        
-        timeDiff = moment.duration(
-            moment().tz(timezone)
-                .startOf(`isoweek`)
-                .add(7, `days`)
-                .add(4, `hours`)
-                .subtract(diffDays, `days`)
-                .diff(moment().tz(timezone))
-        )
-
-        diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
-
-        if (diffDays >= 1 || diffHours >= 1) weeklyReset = `${weeklyReset}${diffHours} hours and `
-
-        timeDiff = moment.duration(
-            moment().tz(timezone)
-                .startOf(`isoweek`)
-                .add(7, `days`)
-                .add(4, `hours`)
-                .subtract(diffDays, `days`)
-                .subtract(diffHours, `hours`)
-                .diff(moment().tz(timezone))
-        )
-
-        diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
-
-        if (diffDays >= 1 || diffHours >= 1 || diffMinutes >= 1) {
-            weeklyReset = `${weeklyReset}${diffMinutes} minutes`
+        if (moment().tz(timezone) >= moment().tz(timezone).startOf(`isoweek`)) {
+            timeDiff = moment.duration(
+                moment().tz(timezone)
+                    .startOf(`isoweek`)
+                    .add(7, `days`)
+                    .add(4, `hours`)
+                    .diff(moment().tz(timezone))
+            )
+    
+            diffDays = parseInt(`` + (timeDiff.asDays()) * 1) / 1
+            if (diffDays >= 1) weeklyReset = `${diffDays} days, `
+            
+            timeDiff = moment.duration(
+                moment().tz(timezone)
+                    .startOf(`isoweek`)
+                    .add(7, `days`)
+                    .add(4, `hours`)
+                    .subtract(diffDays, `days`)
+                    .diff(moment().tz(timezone))
+            )
+    
+            diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
+    
+            if (diffDays >= 1 || diffHours >= 1) weeklyReset = `${weeklyReset}${diffHours} hours and `
+    
+            timeDiff = moment.duration(
+                moment().tz(timezone)
+                    .startOf(`isoweek`)
+                    .add(7, `days`)
+                    .add(4, `hours`)
+                    .subtract(diffDays, `days`)
+                    .subtract(diffHours, `hours`)
+                    .diff(moment().tz(timezone))
+            )
+    
+            diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
+    
+            if (diffDays >= 1 || diffHours >= 1 || diffMinutes >= 1) {
+                weeklyReset = `${weeklyReset}${diffMinutes} minutes`
+            } else {
+                if (
+                    diffDays <= 0 && 
+                    diffHours <= 0 &&
+                    diffMinutes <= 0
+                ) weeklyReset = `a few seconds`
+            }
         } else {
-            if (
-                diffDays <= 0 && 
-                diffHours <= 0 &&
-                diffMinutes <= 0
-            ) weeklyReset = `a few seconds`
+            timeDiff = moment.duration(moment(time, `hhmmss`).tz(timezone).diff(moment().tz(timezone)))
+            diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
+            if (diffHours >= 1) weeklyReset = `${diffHours} hours and `
+
+            timeDiff = moment.duration(
+                moment(time, `hhmmss`).tz(timezone)
+                    .subtract(diffHours, `hours`)
+                    .diff(moment().tz(timezone))
+            )
+
+            diffMinutes = Math.round(timeDiff.asMinutes() * 1) / 1
+
+            if (diffHours >= 1 || diffMinutes >= 1) {
+                weeklyReset = `${weeklyReset}${diffMinutes} minutes`
+            } else {
+                if (diffHours <= 0 && diffMinutes <= 0) weeklyReset = `a few seconds`
+            }
         }
 
         if (reset === undefined) {
