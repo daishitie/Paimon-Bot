@@ -11,14 +11,15 @@ module.exports = async (client, cache) => {
     moment.relativeTimeThreshold('h', 24*2);
 
     async function status() {
-        if (new Date() - time >= 1000 * 45) {
+        if (new Date() - time >= 1000 * 10) {
             await resetStatus(client, 
                 [
-                    // `819826603752292362` underground
-                    `819631361232076820`,
-                    `819667528728051743`,
-                    `819672367134670849`,
-                    `819816569638748179`
+                    // underground
+                    `819826603752292362` 
+                    // `819631361232076820`,
+                    // `819667528728051743`,
+                    // `819672367134670849`,
+                    // `819816569638748179`
                 ], [
                     `NA`, 
                     `EU`, 
@@ -28,11 +29,11 @@ module.exports = async (client, cache) => {
             )
 
             time = new Date()
-            setTimeout(status, 1000 * 15)
+            setTimeout(status, 1000 * 1)
         } else {
-            setTimeout(status, 1000 * 15)
+            setTimeout(status, 1000 * 1)
         }
     }
 
-    setTimeout(status, 1000 * 15)
+    setTimeout(status, 1000 * 1)
 }
