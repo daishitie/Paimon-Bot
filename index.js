@@ -17,7 +17,7 @@ client.on('ready', async () => {
     // Check database connection
     await mongo().then(mongoose => {
         try {
-            console.log(`Successfully connected to database!\n${client.user.name} is ready!`)
+            console.log(`Successfully connected to database!\n${client.user.username} is ready!`)
 
             client.user.setActivity(`Genshin Impact`, { type: `PLAYING` })
                 .then(presence => console.log(`Activity set to ${presence.activities[0].name}\n`))
