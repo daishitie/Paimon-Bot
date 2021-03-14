@@ -97,7 +97,7 @@ module.exports = async (client, channels) => {
             }
         }
 
-        if (moment().tz(timezone) >= moment().tz(timezone).startOf(`isoweek`)) {
+        if (moment().tz(timezone) > moment().tz(timezone).startOf(`isoweek`).add(4, `hours`)) {
             timeDiff = moment.duration(
                 moment().tz(timezone)
                     .startOf(`isoweek`)
@@ -144,12 +144,14 @@ module.exports = async (client, channels) => {
                 ) weeklyReset = `a few seconds`
             }
         } else {
-            timeDiff = moment.duration(moment(time, `hhmmss`).tz(timezone).diff(moment().tz(timezone)))
+            timeDiff = moment.duration(moment().tz(timezone).startOf(`days`).add(4, `hours`).diff(moment().tz(timezone)))
+            
             diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
             if (diffHours >= 1) weeklyReset = `${diffHours} hours and `
 
             timeDiff = moment.duration(
-                moment(time, `hhmmss`).tz(timezone)
+                moment().tz(timezone).startOf(`days`)
+                    .add(4, `hours`)
                     .subtract(diffHours, `hours`)
                     .diff(moment().tz(timezone))
             )
