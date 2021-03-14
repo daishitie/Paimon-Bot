@@ -9,14 +9,15 @@ embed.setColor(`#2f3136`)
     .setTitle(`Server Time`)
     .setImage(`https://img-os-static.mihoyo.com/upload/2021/03/12/11d7753920d16f002faf65f57f97f5e3.png`)
 
-module.exports = async (client, channels, timezone) => {
+module.exports = async (client, channels) => {
     if (typeof channels === `string`) channels = [channels]
-    if (typeof timezone === `string`) timezone = [timezone]
 
     let currentTime,
         reset, 
         dailyReset, 
         weeklyReset = undefined
+
+    const timezone = [`NA`,`EU`,`ASIA`,`SAR`]
 
     moment.relativeTimeThreshold('m', 60)
     moment.relativeTimeThreshold('h', 24*2)
@@ -24,24 +25,24 @@ module.exports = async (client, channels, timezone) => {
     timezone.forEach(async (timezone) => {
         switch (timezone) {
             case `NA`:
+                currentTime = `\`\`\`md\n# ${timezone} `
                 timezone = `America/Chicago`
                 time = `090000`
-                currentTime = `\`\`\`md\n# NA `
                 break
             case `EU`:
+                currentTime = `\`\`\`text\n# ${timezone} `
                 timezone = `Europe/Paris`
                 time = `030000`
-                currentTime = `\`\`\`text\n# EU `
                 break
             case `ASIA`:
+                currentTime = `\`\`\`glsl\n# ${timezone} `
                 timezone = `Asia/Manila`
                 time = `20000`
-                currentTime = `\`\`\`glsl\n# ASIA `
                 break
             case `SAR`:
+                currentTime = `\`\`\`fix\n# ${timezone} `
                 timezone = `Asia/Taipei`
                 time = `20000`
-                currentTime = `\`\`\`fix\n# SAR `
                 break
             default:
                 timezone = `Asia/Manila`
