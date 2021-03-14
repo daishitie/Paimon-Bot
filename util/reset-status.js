@@ -5,6 +5,8 @@ const moment = require('moment-timezone')
 
 const firstMessage = require('@util/first-message')
 
+const timezone = [`NA`,`EU`,`ASIA`,`SAR`]
+
 embed.setColor(`#2f3136`)
     .setTitle(`Server Time`)
     .setImage(`https://img-os-static.mihoyo.com/upload/2021/03/12/11d7753920d16f002faf65f57f97f5e3.png`)
@@ -16,8 +18,6 @@ module.exports = async (client, channels) => {
         reset, 
         dailyReset, 
         weeklyReset = undefined
-
-    const timezone = [`NA`,`EU`,`ASIA`,`SAR`]
 
     moment.relativeTimeThreshold('m', 60)
     moment.relativeTimeThreshold('h', 24*2)
