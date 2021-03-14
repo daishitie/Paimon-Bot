@@ -24,7 +24,7 @@ module.exports = async (client, channels, timezone) => {
     timezone.forEach(async (timezone) => {
         switch (timezone) {
             case `NA`:
-                timezone = `America/New_York`
+                timezone = `America/Chicago`
                 time = `090000`
                 currentTime = `\`\`\`md\n# NA `
                 break
