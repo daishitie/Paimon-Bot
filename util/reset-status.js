@@ -64,13 +64,6 @@ module.exports = async (client, channels, timezone) => {
         } else {
             reset += `${currentTime}• Daily reset ${dailyReset}\n• Weekly reset ${weeklyReset}`
         }
-
-        // ** DEBUG **
-        // console.log(`\n${timezone}: ${moment().tz(timezone).format(`LLL`)}`)
-        // console.log(`${timezone}: ${moment().tz(timezone).endOf(`isoweek`).format(`LLL`)}`)
-        // console.log(`${timezone}: ${moment().tz(timezone).startOf(`isoweek`).format(`LLL`)}`)
-        // console.log(`${timezone}: ${moment().tz(timezone).startOf(`isoweek`).add(`7`, `days`).add(`4`, `hours`).format(`LLL`)}`)
-        // console.log(moment(time, `hhmmss`).tz(timezone).format(`LLL`))
     });
 
     channels.forEach(async (channel) => await firstMessage(client, channel, { embed: embed.setDescription(reset) }, []))
