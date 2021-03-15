@@ -9,7 +9,7 @@ const timezone = [`NA`,`EU`,`ASIA`,`SAR`]
 
 embed.setColor(`#2f3136`)
     .setTitle(`Server Time`)
-    .setImage(`https://img-os-static.mihoyo.com/upload/2021/03/12/11d7753920d16f002faf65f57f97f5e3.png`)
+    .setImage(`https://media.discordapp.net/attachments/819277662211932172/820951468974538752/160729853_904583563725168_3208384222469389005_o.png`)
 
 module.exports = async (client, channels) => {
     if (typeof channels === `string`) channels = [channels]
@@ -144,7 +144,12 @@ module.exports = async (client, channels) => {
                 ) weeklyReset = `a few seconds`
             }
         } else {
-            timeDiff = moment.duration(moment().tz(timezone).startOf(`days`).add(4, `hours`).diff(moment().tz(timezone)))
+            timeDiff = moment.duration(
+                moment().tz(timezone)
+                    .startOf(`days`)
+                    .add(4, `hours`)
+                    .diff(moment().tz(timezone))
+            )
             
             diffHours = parseInt(`` + (timeDiff.asHours()) * 1) / 1
             if (diffHours >= 1) weeklyReset = `${diffHours} hours and `
