@@ -152,7 +152,7 @@ module.exports = {
                 + `\`\`\`\n`
                 + `Please note that your appeal will not be considered if it lacks detail or isn't taken seriously.`)
         
-        webhookMessage(
+        await webhookMessage(
             client, 
             message,
             {
@@ -162,13 +162,24 @@ module.exports = {
                     embed3,
                     embed4,
                     embed5,
+                ]
+            },
+            `Paimon Impact`
+        )
+
+        await webhookMessage(
+            client, 
+            message,
+            {
+                embeds: [
                     embed6,
                     embed7,
                     embed8,
                     embed9,
-                    embed10
+                    embed10,
                 ]
-            }
+            },
+            `Paimon Impact`
         )
     },
     permission: ['ADMINISTRATOR'],
