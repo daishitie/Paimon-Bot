@@ -21,7 +21,7 @@ module.exports = async (client, channels) => {
 
     timezone.forEach(async (timezone) => {
         let currentTime,
-            dailyReset, 
+            dailyReset = ``, 
             weeklyReset = ``
 
         switch (timezone) {
