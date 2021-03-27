@@ -9,6 +9,7 @@ const embed7 = new MessageEmbed()
 const embed8 = new MessageEmbed()
 const embed9 = new MessageEmbed()
 const embed10 = new MessageEmbed()
+const embed11 = new MessageEmbed()
 
 const webhookMessage = require('@util/webhook-message')
 const { color } = require('@root/config-paimon-impact.json')
@@ -68,13 +69,13 @@ module.exports = {
             .setDescription(`Do not say/post/share anything that may make other members feel disturbed.\n\n`
                 + `3.1.	Do not discuss any heated topics, such as politics or religion, that could incite arguments or aggression. `
                 + `That includes, but is not limited to:\n\n`
-                + `\`\`\`YAML `
+                + `\`\`\`YAML\n`
                 + `- Gender, Race, Ethnicity, Age, Sexuality, Religious Affiliation/Beliefs, Political Affiliation/Beliefs or background.`
                 + `\`\`\`\n`
                 + `3.2.	Avoid any sensitive topics/jokes as much as possible as we’re only a Genshin Impact-related server. `
                 + `Do not post any messages or images that may be too extreme in nature. `
                 + `That includes, but is not limited to:\n\n`
-                + `\`\`\`YAML `
+                + `\`\`\`YAML\n`
                 + `- Suicide, NSFL, Gore, Animal Abuse, and Death.`
                 + `\`\`\`\n`
                 + `3.3.	Borderline topics are allowed, but should stop as soon people feel uncomfortable with it. `
@@ -87,7 +88,7 @@ module.exports = {
                 + `Do not post any NSFW/R-18 such as images that may be too obscene in nature, `
                 + `i.e; Scat, Vore, Goro, Blood, Lolis, Shotas, Rape, Hentai, Pornography, Explicit Nudity, Sexual Content.\n\n`
                 + `While this has a broad field and everyone has a different opinion on what constitutes as NSFW, here are a couple of guidelines:\n\n`
-                + `\`\`\`YAML `
+                + `\`\`\`YAML\n`
                 + `- No genitalia or other sexual body parts, including nipples, vaginas, or erections. `
                 + `Any covered but visible cases will fall under this category (Sexually suggestive poses or shameful or inappropriate situations).\n\n`
                 + `- No implied nudity or sexual activity.\n\n`
@@ -139,18 +140,21 @@ module.exports = {
                 + `Just keep it cool around here and you’ll be fine for sure. We’re not so strict so don’t worry about it too much!\n\n`
                 + `Please note that any other actions that cause problems will be dealt with as necessary, just because it's not specifically listed here doesn't mean it's allowed. `
                 + `We judge each and every situation individually and take action based on the severity and regularity of an offense.\n\n`
-                + `𝘼𝙙 𝘼𝙨𝙩𝙧𝙖 𝘼𝙗𝙮𝙨𝙨𝙤𝙨𝙦𝙪𝙚, 𝙏𝙧𝙖𝙫𝙚𝙡𝙡𝙚𝙧\n\n`
-                + `**I disagree with my punishment, how can I appeal?**\n\n`
-                + `If you feel that you were punished erroneously or the decision to punish you was made without proper context, `
-                + `please send a direct message to <@&785485642024091648> and/or <@&815560590156103740>. `
-                + `The appeal should contain the following, in as much detail as you find appropriate:\n\n`
-                + `\`\`\`YAML `
-                + `- A description of your actions and whether you believe your ban was justified\n`
-                + `- The thought process behind your actions leading up to your time out\n`
-                + `- Why your time out should be appealed\n`
-                + `- Any additional thoughts on your time out`
-                + `\`\`\`\n`
-                + `Please note that your appeal will not be considered if it lacks detail or isn't taken seriously.`)
+                + `𝘼𝙙 𝘼𝙨𝙩𝙧𝙖 𝘼𝙗𝙮𝙨𝙨𝙤𝙨𝙦𝙪𝙚, 𝙏𝙧𝙖𝙫𝙚𝙡𝙡𝙚𝙧`)
+            
+            embed11
+                .setColor(color.info)
+                .setTitle(`I disagree with my punishment, how can I appeal?`)
+                .setDescription(`If you feel that you were punished erroneously or the decision to punish you was made without proper context, `
+                    + `please send a direct message to <@&785485642024091648> and/or <@&815560590156103740>. `
+                    + `The appeal should contain the following, in as much detail as you find appropriate:\n\n`
+                    + `\`\`\`YAML\n`
+                    + `- A description of your actions and whether you believe your ban was justified\n`
+                    + `- The thought process behind your actions leading up to your time out\n`
+                    + `- Why your time out should be appealed\n`
+                    + `- Any additional thoughts on your time out`
+                    + `\`\`\`\n`
+                    + `Please note that your appeal will not be considered if it lacks detail or isn't taken seriously.`)
         
         await webhookMessage(
             client, 
@@ -177,6 +181,7 @@ module.exports = {
                     embed8,
                     embed9,
                     embed10,
+                    embed11,
                 ]
             },
             `Paimon Impact`
