@@ -17,7 +17,7 @@ module.exports = {
     commands: ['setrules'],
     description: `Send the set of rules.`,
     cooldown: 3,
-    callback: (message, arguments, text, client, cache) => {
+    callback: async (message, arguments, text, client, cache) => {
         const { author, channel, guild } = message
 
         embed1
