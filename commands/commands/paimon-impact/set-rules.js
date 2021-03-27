@@ -67,16 +67,16 @@ module.exports = {
             .setTitle(`Rule #3`)
             .setDescription(`Do not say/post/share anything that may make other members feel disturbed.\n\n`
                 + `3.1.	Do not discuss any heated topics, such as politics or religion, that could incite arguments or aggression. `
-                + `That includes, but is not limited to:\n`
-                + `\`\`\`YAML`
+                + `That includes, but is not limited to:\n\n`
+                + `\`\`\`YAML `
                 + `- Gender, Race, Ethnicity, Age, Sexuality, Religious Affiliation/Beliefs, Political Affiliation/Beliefs or background.`
-                + `\`\`\``
+                + `\`\`\`\n`
                 + `3.2.	Avoid any sensitive topics/jokes as much as possible as we’re only a Genshin Impact-related server. `
                 + `Do not post any messages or images that may be too extreme in nature. `
-                + `That includes, but is not limited to:\n`
-                + `\`\`\`YAML`
+                + `That includes, but is not limited to:\n\n`
+                + `\`\`\`YAML `
                 + `- Suicide, NSFL, Gore, Animal Abuse, and Death.`
-                + `\`\`\``
+                + `\`\`\`\n`
                 + `3.3.	Borderline topics are allowed, but should stop as soon people feel uncomfortable with it. `
                 + `If the topic talk refuses to stop, the person can ping the active admins for assistance.`)
 
@@ -86,8 +86,8 @@ module.exports = {
             .setDescription(`Any NSFW content is strictly prohibited, as members may feel uncomfortable about this topic. `
                 + `Do not post any NSFW/R-18 such as images that may be too obscene in nature, `
                 + `i.e; Scat, Vore, Goro, Blood, Lolis, Shotas, Rape, Hentai, Pornography, Explicit Nudity, Sexual Content.\n\n`
-                + `While this has a broad field and everyone has a different opinion on what constitutes as NSFW, here are a couple of guidelines:\n`
-                + `\`\`\`YAML`
+                + `While this has a broad field and everyone has a different opinion on what constitutes as NSFW, here are a couple of guidelines:\n\n`
+                + `\`\`\`YAML `
                 + `- No genitalia or other sexual body parts, including nipples, vaginas, or erections. `
                 + `Any covered but visible cases will fall under this category (Sexually suggestive poses or shameful or inappropriate situations).\n\n`
                 + `- No implied nudity or sexual activity.\n\n`
@@ -143,13 +143,13 @@ module.exports = {
                 + `**I disagree with my punishment, how can I appeal?**\n\n`
                 + `If you feel that you were punished erroneously or the decision to punish you was made without proper context, `
                 + `please send a direct message to <@&785485642024091648> and/or <@&815560590156103740>. `
-                + `The appeal should contain the following, in as much detail as you find appropriate:\n`
-                + `\`\`\`YAML`
+                + `The appeal should contain the following, in as much detail as you find appropriate:\n\n`
+                + `\`\`\`YAML `
                 + `- A description of your actions and whether you believe your ban was justified\n`
                 + `- The thought process behind your actions leading up to your time out\n`
                 + `- Why your time out should be appealed\n`
                 + `- Any additional thoughts on your time out`
-                + `\`\`\``
+                + `\`\`\`\n`
                 + `Please note that your appeal will not be considered if it lacks detail or isn't taken seriously.`)
         
         webhookMessage(
@@ -164,6 +164,9 @@ module.exports = {
                     embed5,
                     embed6,
                     embed7,
+                    embed8,
+                    embed9,
+                    embed10
                 ]
             }
         )
