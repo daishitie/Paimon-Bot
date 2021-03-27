@@ -186,6 +186,8 @@ module.exports = {
             },
             `Paimon Impact`
         )
+
+        await message.delete({ timeout: 1000 })
     },
     permission: ['ADMINISTRATOR'],
     servers: ['785156593935056967']

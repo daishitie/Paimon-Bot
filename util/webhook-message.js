@@ -3,8 +3,6 @@ module.exports = async (client, message, text, name, avatar) => {
 
     if (!name) name = `Paimon`
     if (!avatar) avatar = client.user.avatarURL()
-    
-    message.delete({ timeout: 750 })
 
     channel.createWebhook(name, { avatar: avatar })
         .then(async (w) => {
