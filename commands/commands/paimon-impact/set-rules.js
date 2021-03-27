@@ -168,7 +168,8 @@ module.exports = {
                     embed5,
                 ]
             },
-            `Paimon Impact`
+            `Paimon Impact`,
+            `https://cdn.discordapp.com/attachments/819102097218863117/825265260763414598/paimon_impact.png`
         )
 
         await webhookMessage(
@@ -184,7 +185,8 @@ module.exports = {
                     embed11,
                 ]
             },
-            `Paimon Impact`
+            `Paimon Impact`,
+            `https://cdn.discordapp.com/attachments/819102097218863117/825265260763414598/paimon_impact.png`
         )
 
         await message.delete({ timeout: 1000 })
