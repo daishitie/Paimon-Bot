@@ -23,7 +23,7 @@ module.exports = {
 
         embed2
             .setColor(color.info)
-            .setTitle(`🔑 Information`)
+            .setTitle(`Information`)
             .setDescription(`<#815806492753657857>\nPaimon Impact news and announcements.\n`
                 + `<#815806638572699688>\nPaimon Impact discord server updates.\n`
                 + `<#815806737093099541>\nGenshin Impact news, updates, and announcements.\n`
@@ -33,7 +33,7 @@ module.exports = {
         
         embed3
             .setColor(color.info)
-            .setTitle(`🌍 Teyvat`)
+            .setTitle(`Teyvat`)
             .setDescription(`<#785491139993272320>\nGeneral Discussion.\n`
                 + `<#815661801739911178>\nAll discussions unrelated to Genshin Impact.\n`
                 + `<#817703607503683606>\nMeme's Channel.\n`
@@ -44,12 +44,12 @@ module.exports = {
 
         embed4
             .setColor(color.info)
-            .setTitle(`👊 CO-OP`)
+            .setTitle(`CO-OP`)
             .setDescription(`<#824530618875641876>\nNeed co-op or help with domain or farm? Just leave a message here.`)
 
         embed5
             .setColor(color.info)
-            .setTitle(`📊 GENSHIN INFO`)
+            .setTitle(`GENSHIN INFO`)
             .setDescription(`<#808706827340087316>\nGenshin Impact lores.\n`
                 + `<#785156594379128833>\nGenshin Impact tips.\n`
                 + `<#785925866311516201>\nGenshin Impact character builds.\n`
