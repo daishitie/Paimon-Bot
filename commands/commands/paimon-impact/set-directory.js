@@ -1,79 +1,97 @@
-const { MessageEmbed } = require('discord.js')
-const embed1 = new MessageEmbed()
-const embed2 = new MessageEmbed()
-const embed3 = new MessageEmbed()
-const embed4 = new MessageEmbed()
-const embed5 = new MessageEmbed()
+const { MessageEmbed } = require('discord.js');
+const embed1 = new MessageEmbed();
+const embed2 = new MessageEmbed();
+const embed3 = new MessageEmbed();
+const embed4 = new MessageEmbed();
+const embed5 = new MessageEmbed();
+const embed6 = new MessageEmbed();
+const embed7 = new MessageEmbed();
+const embed8 = new MessageEmbed();
 
-const webhookMessage = require('@util/webhook-message')
-const { color } = require('@root/config-paimon-impact.json')
+const webhookMessage = require('@util/webhook-message');
+const { color } = require('@root/config-paimon-impact.json');
 
 module.exports = {
-    commands: ['setdirectory'],
-    description: `Send the set of directories.`,
-    cooldown: 3,
-    callback: async (message, arguments, text, client, cache) => {
-        const { author, channel, guild } = message
+	commands: ['setdirectory'],
+	description: 'Send the set of directories.',
+	cooldown: 3,
+	callback: async (message, arguments, text, client, cache) => {
+		embed1
+			.setColor(color.info)
+			.setTitle('─ Server Directory')
+			.setDescription('*This is your guide to the server\'s channels that vary in topics.*')
+			.setImage('https://cdn.discordapp.com/attachments/819102097218863117/825272783726051338/paimon_impact_server_directory.png');
 
-        embed1
-            .setColor(color.info)
-            .setTitle(`─ Server Directory`)
-            .setDescription(`*This is your guide to the server's channels that vary in topics.*`)
-            .setImage(`https://cdn.discordapp.com/attachments/819102097218863117/825272783726051338/paimon_impact_server_directory.png`)
+		embed2
+			.setColor(color.info)
+			.setTitle('Start Here')
+			.setDescription('<#815654127492661249>\nPaimon Impact discord server rules.\n'
+                + '<#841168675700867072>\nSelf-assigned role.\n'
+                + '<#815667258079576085>\nThis is your guide to the server\'s channels that vary in topics.');
 
-        embed2
-            .setColor(color.info)
-            .setTitle(`Information`)
-            .setDescription(`<#815806492753657857>\nPaimon Impact news and announcements.\n`
-                + `<#815806638572699688>\nPaimon Impact discord server updates.\n`
-                + `<#815806737093099541>\nGenshin Impact news, updates, and announcements.\n`
-                + `<#815873729241677907>\nPick the server that you're playing on and select your world level.\n`
-                + `<#785156594379128834>\nDiscord assistance desk, if someone having a hard time in our discord.\n`
-                + `<#815806943296880650>\nPaimon Impact discord server boosts.`)
-        
-        embed3
-            .setColor(color.info)
-            .setTitle(`Teyvat`)
-            .setDescription(`<#785491139993272320>\nGeneral Discussion.\n`
-                + `<#815661801739911178>\nAll discussions unrelated to Genshin Impact.\n`
-                + `<#817703607503683606>\nMeme's Channel.\n`
-                + `<#819505977475858432>\nDrop your meme templates here.\n`
-                + `<#815662591333761104>\nSuggestions and Feedbacks to the server.\n`
-                + `<#815661881984417812>\nUse this channel for queueing, avoid any unnecessary conversation.\n`
-                + `<#825120371770523658>\nUse this if you didn't have any mic.`)
+		embed3
+			.setColor(color.info)
+			.setTitle('Information')
+			.setDescription('<#815806492753657857>\nPaimon Impact official news and announcements.\n'
+                + '<#815806638572699688>\nPaimon Impact discord server updates.\n'
+                + '<#819672367134670849>\nGenshin Impact live server time.\n'
+                + '<#815806737093099541>\nGenshin Impact news, updates, and announcements.\n');
 
-        embed4
-            .setColor(color.info)
-            .setTitle(`CO-OP`)
-            .setDescription(`<#824530618875641876>\nNeed co-op or help with domain or farm? Just leave a message here.`)
+		embed4
+			.setColor(color.info)
+			.setTitle('Events')
+			.setDescription('<#841167062448865322>\nPaimon Impact official events.\n'
+                + '<#826280370550472735>\nCommunity public events.');
 
-        embed5
-            .setColor(color.info)
-            .setTitle(`GENSHIN INFO`)
-            .setDescription(`<#808706827340087316>\nGenshin Impact lores.\n`
-                + `<#785156594379128833>\nGenshin Impact tips.\n`
-                + `<#785925866311516201>\nGenshin Impact character builds.\n`
-                + `<#789479730113150996>\nGenshin Impact character level up materials.\n`
-                + `<#808643460021747724>\nGenshin Impact character and weapon level up costs.`)
+		embed5
+			.setColor(color.info)
+			.setTitle('General')
+			.setDescription('<#815661801739911178>\nGeneral Discussion.\n'
+                + '<#815661881984417812>\nUse this channel for queueing, avoid any unnecessary conversation.\n'
+                + '<#825120371770523658>\nUse this if you didn\'t have any mic.');
 
-        await webhookMessage(
-            client, 
-            message,
-            {
-                embeds: [
-                    embed1,
-                    embed2,
-                    embed3,
-                    embed4,
-                    embed5,
-                ]
-            },
-            `Paimon Impact`,
-            `https://cdn.discordapp.com/attachments/819102097218863117/825265260763414598/paimon_impact.png`
-        )
+		embed6
+			.setColor(color.info)
+			.setTitle('Genshin Impact')
+			.setDescription('<#785491139993272320>\nGenshin Impact discussion.\n'
+                + '<#825340114007097354>\nGenshin Impact power flex!\n'
+                + '<#841320087994892309>\nGenshin Impact community guides.');
 
-        await message.delete({ timeout: 1000 })
-    },
-    permission: ['ADMINISTRATOR'],
-    servers: ['785156593935056967']
-}
+		embed6
+			.setColor(color.info)
+			.setTitle('Honkai Impact')
+			.setDescription('<#835888727183851550>\nHonkai Impact discussion.\n'
+                + '<#835891046939754516>\nHonkai Impact power flex!\n'
+                + '<#835890643191726120>\nHonkai Impact community guides.');
+
+		embed8
+			.setColor(color.info)
+			.setTitle('CO-OP')
+			.setDescription('<#829840698470825994>\nCommunity farming schedules.\n'
+                + '<#824530618875641876>\nNeed co-op or help with domain or farm? Just leave a message here.\n'
+                + '<#841159328282574858>\nCo-op AutoChannel bot commands, avoid any unnecessary conversation.');
+
+		await webhookMessage(
+			client,
+			message,
+			{
+				embeds: [
+					embed1,
+					embed2,
+					embed3,
+					embed4,
+					embed5,
+					embed6,
+					embed7,
+					embed8,
+				],
+			},
+			'Paimon Impact',
+			null,
+		);
+
+		await message.delete({ timeout: 1000 });
+	},
+	permission: ['ADMINISTRATOR'],
+	servers: ['785156593935056967'],
+};
