@@ -1,4 +1,4 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed, Message } = require('discord.js');
 const embed1 = new MessageEmbed();
 const embed2 = new MessageEmbed();
 const embed3 = new MessageEmbed();
@@ -10,6 +10,7 @@ const embed8 = new MessageEmbed();
 const embed9 = new MessageEmbed();
 const embed10 = new MessageEmbed();
 const embed11 = new MessageEmbed();
+const embed12 = new MessageEmbed();
 
 const webhookMessage = require('@util/webhook-message');
 const { color } = require('@root/config-paimon-impact.json');
@@ -156,6 +157,10 @@ module.exports = {
                     + '```\n'
                     + 'Please note that your appeal will not be considered if it lacks detail or isn\'t taken seriously.');
 
+		embed12
+			.setColor(color.info)
+			.setDescription('After reading our rules please proceed to <#841168675700867072> channel.');
+
 		await webhookMessage(
 			client,
 			message,
@@ -169,7 +174,7 @@ module.exports = {
 				],
 			},
 			'Paimon Impact',
-			'https://cdn.discordapp.com/attachments/819102097218863117/825265260763414598/paimon_impact.png',
+			null,
 		);
 
 		await webhookMessage(
@@ -183,10 +188,11 @@ module.exports = {
 					embed9,
 					embed10,
 					embed11,
+					embed12,
 				],
 			},
 			'Paimon Impact',
-			'https://cdn.discordapp.com/attachments/819102097218863117/825265260763414598/paimon_impact.png',
+			null,
 		);
 
 		await message.delete({ timeout: 1000 });
