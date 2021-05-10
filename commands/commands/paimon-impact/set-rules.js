@@ -10,7 +10,6 @@ const embed8 = new MessageEmbed();
 const embed9 = new MessageEmbed();
 const embed10 = new MessageEmbed();
 const embed11 = new MessageEmbed();
-const embed12 = new MessageEmbed();
 
 const webhookMessage = require('@util/webhook-message');
 const { color } = require('@root/config-paimon-impact.json');
@@ -184,7 +183,6 @@ module.exports = {
 					embed9,
 					embed10,
 					embed11,
-					embed12,
 				],
 			},
 			'Paimon Impact',

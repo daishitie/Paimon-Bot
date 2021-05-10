@@ -57,7 +57,7 @@ module.exports = {
                 + '<#825340114007097354>\nGenshin Impact power flex!\n'
                 + '<#841320087994892309>\nGenshin Impact community guides.');
 
-		embed6
+		embed7
 			.setColor(color.info)
 			.setTitle('Honkai Impact')
 			.setDescription('<#835888727183851550>\nHonkai Impact discussion.\n'
