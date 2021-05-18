@@ -9,7 +9,7 @@ const timezone = ['NA', 'EU', 'ASIA', 'SAR'];
 
 embed.setColor('#2f3136')
 	.setTitle('Server Time')
-	.setImage('https://cdn.discordapp.com/attachments/819277662211932172/841338963980451860/2cf8dcfa531f354289d1e598ae89d252.png');
+	.setImage('https://cdn.discordapp.com/attachments/819277662211932172/844055411879444480/60ebddd20a71d2291c125f366d9f5529.jpeg');
 
 module.exports = async (client, channels) => {
 	if (typeof channels === 'string') channels = [channels];
